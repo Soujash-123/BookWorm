@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BookWorm - Signup</title>
+<style>
+  body {
+    font-family: 'Book Antiqua', Palatino, serif;
+    background-color: #f9f5ed;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  @font-face {
+    font-family: 'Blackwood Castle';
+    src: url('path/to/Blackwood Castle.ttf') format('truetype'); /* Replace 'path/to' with the actual path */
+  }
+  .container {
+    font-family: 'Blackwood Castle', 'Book Antiqua', Palatino, serif;
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+  }
+  h1 {
+    font-family: 'Blackwood Castle', 'Lucida Calligraphy', 'URW Chancery L', cursive;
+    color: #4d2e00;
+    margin-bottom: 30px;
+    font-size: 60px; /* Increased font size to 60px */
+  }
+  input[type="text"],
+  input[type="password"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 20px; /* Increased font size by 20px */
+  }
+  input[type="submit"] {
+    background-color: #4d2e00;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px; /* Increased font size by 20px */
+    margin-right: 10px; /* Added margin to separate buttons */
+  }
+  input[type="submit"]:hover {
+    background-color: #5f3e00;
+  }
+  .signup-text {
+    font-size: 16px;
+    color: #666;
+    margin-top: 20px;
+  }
+  .signup-text a {
+    color: #4d2e00;
+    text-decoration: none;
+  }
+  .signup-text a:hover {
+    text-decoration: underline;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>BookWorm - Signup</h1>
+  <form action="/signup" method="post"> <!-- Changed action attribute to /signup -->
+    <input type="text" name="username" placeholder="Username" required><br>
+    <input type="password" name="password" placeholder="Password" required><br>
+    <input type="submit" value="Signup">
+    <a href="/#" class="signup-text">Already have an account? Login.</a>
+  </form>
+</div>
+</body>
+</html>

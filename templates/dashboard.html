@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookWorm Library</title>
+    <style>
+        body {
+            font-family: 'MorrisRoman-Black', sans-serif;
+            background-color: #f3e7d8; /* Lighter shade of brown */
+            margin: 0;
+            padding: 0;
+        }
+        @font-face {
+    font-family: 'MorrisRoman-Black';
+    src: url('{{ url_for('static', filename='fonts/MorrisRoman-Black.ttf') }}') format('truetype');
+  }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #dea44f;
+            color: white;
+        }
+        .url-btn {
+            text-decoration: none;
+            background-color: #8b4513; /* Brown */
+            color: white;
+            padding: 6px 12px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 4px;
+        }
+        .page-nav {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .page-nav-btn {
+            text-decoration: none;
+            background-color: #8b4513; /* Brown */
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>BookWorm Library</h1>
+    <table>
+        <thead>
+            <tr>
+                {% for key in data[0].keys() %}
+                    {% if key != 'URL' %}
+                        <th>{{ key }}</th>
+                    {% endif %}
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in data %}
+                <tr>
+                    {% for key, value in row.items() %}
+                        {% if key != 'URL' %}
+                            <td>{{ value }}</td>
+                        {% else %}
+                            <td><a class="url-btn" href="{{ value }}" target="_blank">Read</a></td>
+                        {% endif %}
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="page-nav">
+        {% if page > 1 %}
+            <a class="page-nav-btn" href="?page={{ page - 1 }}">Previous Page</a>
+        {% endif %}
+        <a class="page-nav-btn" href="?page={{ page + 1 }}">Next Page</a>
+    </div>
+</body>
+</html>
